@@ -1,0 +1,18 @@
+
+# Automated file sorter
+
+import os, shutil
+path = r'D:/Data Analysis/portfolioproject/New folder/'
+file_name = os.listdir(path)
+folder_names = ['video files', 'image files', 'excel files']
+for loop in range(0,3):
+   if not os.path.exists(path+folder_names[loop]):
+    os.makedirs((path+folder_names[loop]))
+       
+for file in file_name:
+    if ".mp4" in file and not os.path.exists(path + "video files/" + file):
+        shutil.move(path + file, path + "video files/" + file)
+    elif ".jpg" in file and not os.path.exists(path + "image files/" + file):
+        shutil.move(path + file, path + "image files/" + file)
+    elif ".xlsx" in file and not os.path.exists(path + "excel files/" + file):
+        shutil.move(path + file, path + "excel files/" + file)
